@@ -9,4 +9,5 @@ class CategorySerializers(serializers.ModelSerializer):
 class MemberSerializers(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ['user_id','user_name','user_email']
+        fields = '__all__'
+        # fields = ['user_id','user_name','user_email']
