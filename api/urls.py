@@ -7,6 +7,8 @@ router = DefaultRouter()
 router.register('category', views.CategoryViewSet)
 # https://..../member
 router.register('member', views.MemberViewSet)
+# https://..../spots
+router.register('spots', views.SpotimagesspotViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

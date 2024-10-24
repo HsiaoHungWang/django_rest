@@ -34,8 +34,7 @@ class Member(models.Model):
     user_password = models.CharField(max_length=128)
     user_email = models.CharField(unique=True, max_length=100)
     user_birth = models.DateField()
-    # user_avator = models.CharField(max_length=50)
-    user_avator = models.ImageField(upload_to='avatars/')
+    user_avator = models.CharField(max_length=50)
     last_update = models.DateTimeField()
 
     class Meta:
@@ -52,6 +51,26 @@ class Spotimages(models.Model):
     class Meta:
         managed = False
         db_table = 'spotimages'
+
+
+class Spotimagesspot(models.Model):
+    spotid = models.IntegerField(db_column='SpotId', primary_key=True)  # Field name made lowercase.
+    categoryid = models.IntegerField(db_column='CategoryId', blank=True, null=True)  # Field name made lowercase.
+    spottitle = models.CharField(db_column='SpotTitle', max_length=50, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    spotdescription = models.TextField(db_column='SpotDescription', db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    address = models.CharField(db_column='Address', max_length=200, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    trafficinfo = models.CharField(db_column='TrafficInfo', max_length=300, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    longitude = models.CharField(db_column='Longitude', max_length=20, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    latitude = models.CharField(db_column='Latitude', max_length=20, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    opentime = models.CharField(db_column='OpenTime', max_length=300, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    contactphone = models.CharField(db_column='ContactPhone', max_length=200, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+    datecreated = models.DateTimeField(db_column='DateCreated', blank=True, null=True)  # Field name made lowercase.
+    spotimage = models.CharField(db_column='SpotImage', max_length=200, db_collation='utf8mb4_general_ci', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False  # Created from a view. Don't remove.
+        db_table = 'spotimagesspot'
+        db_table_comment = 'VIEW'
 
 
 class Spots(models.Model):

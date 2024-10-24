@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Categories, Member
-from .serializers import CategorySerializers, MemberSerializers
+from .models import Categories, Member, Spotimagesspot
+from .serializers import CategorySerializers, MemberSerializers, SpotimagesspotSerializers
 
 # Create your views here.
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -11,4 +11,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class MemberViewSet(viewsets.ModelViewSet):
     queryset = Member.objects.all()
     serializer_class = MemberSerializers
+
+class SpotimagesspotViewSet(viewsets.ModelViewSet):
+    queryset = Spotimagesspot.objects.all()
+    serializer_class = SpotimagesspotSerializers
 

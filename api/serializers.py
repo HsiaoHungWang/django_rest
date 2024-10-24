@@ -1,10 +1,15 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import Categories, Member
+from .models import Categories, Member, Spotimagesspot
 
 class CategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = Categories
+        fields = '__all__'
+
+class SpotimagesspotSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Spotimagesspot
         fields = '__all__'
 
 class MemberSerializers(serializers.ModelSerializer):
